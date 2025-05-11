@@ -28,7 +28,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/customers/summary", {
+      .get(`${process.env.REACT_APP_BACKEND_BASE_URL}/api/customers/summary`, {
         withCredentials: true,
       })
       .then((res) => setStats(res.data))

@@ -7,7 +7,7 @@ const Customers = () => {
   const [orders, setOrders] = useState([])
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/orders", { withCredentials: true })
+    axios.get(`${process.env.REACT_APP_BACKEND_BASE_URL}/api/orders`, { withCredentials: true })
       .then((res) => setOrders(res.data))
       .catch((err) => console.error("Error fetching orders with customer data:", err))
   }, [])

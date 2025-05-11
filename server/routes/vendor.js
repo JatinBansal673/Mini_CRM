@@ -18,7 +18,7 @@ router.post("/send", async (req, res) => {
   // Simulate delivery delay
   setTimeout(async () => {
     // Send delivery receipt to our backend
-    await axios.post("http://localhost:5000/api/vendor/receipt", {
+    await axios.post(`${process.env.REACT_APP_BACKEND_BASE_URL}/api/vendor/receipt`, {
       logId,
       status,
       vendorMessageId,

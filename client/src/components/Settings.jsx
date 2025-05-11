@@ -8,7 +8,7 @@ const Settings = () => {
   const [notificationsEnabled, setNotificationsEnabled] = useState(true)
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/auth/user", { withCredentials: true })
+    axios.get(`${process.env.REACT_APP_BACKEND_BASE_URL}/api/auth/user`, { withCredentials: true })
       .then((res) => {
         setUser(res.data)
       })
@@ -26,7 +26,7 @@ const Settings = () => {
   }
 
   const handleLogout = () => {
-    window.location.href = "http://localhost:5000/api/auth/logout"
+    window.location.href = `${process.env.REACT_APP_BACKEND_BASE_URL}/api/auth/logout`
   }
 
   if (loading) {

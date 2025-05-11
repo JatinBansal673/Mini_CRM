@@ -25,7 +25,7 @@ const CustomerUpload = () => {
       const formData = new FormData()
       formData.append("file", file)
 
-      const res = await axios.post("http://localhost:5000/api/customers/upload", formData, {
+      const res = await axios.post(`${process.env.REACT_APP_BACKEND_BASE_URL}/api/customers/upload`, formData, {
         withCredentials: true,
       })
 

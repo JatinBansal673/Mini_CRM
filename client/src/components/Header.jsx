@@ -7,7 +7,7 @@ const Header = ({ toggleSidebar }) => {
   const navigate = useNavigate()
 
   const handleLogout = () => {
-    fetch("http://localhost:5000/api/auth/logout", {
+    fetch(`${process.env.REACT_APP_BACKEND_BASE_URL}/api/auth/logout`, {
       credentials: "include",
     }).finally(() => {
       navigate("/")

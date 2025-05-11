@@ -14,7 +14,7 @@ function CampaignHistory() {
   useEffect(() => {
     setIsLoading(true)
     axios
-      .get("http://localhost:5000/api/campaigns", { withCredentials: true })
+      .get(`${process.env.REACT_APP_BACKEND_BASE_URL}/api/campaigns`, { withCredentials: true })
       .then((res) => {
         setCampaigns(res.data)
         setIsLoading(false)

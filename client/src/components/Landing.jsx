@@ -17,7 +17,7 @@ const Landing = () => {
   }, [user, navigate])
 
   const handleLogin = () => {
-    window.location.href = "http://localhost:5000/api/auth/google"
+    window.location.href = `${process.env.REACT_APP_BACKEND_BASE_URL}/api/auth/google`
   }
 
   const features = [

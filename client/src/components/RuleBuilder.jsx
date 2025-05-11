@@ -48,7 +48,7 @@ const RuleBuilder = ({ rules, setRules, setAudienceSize, setAudiencePreviewed })
     
 
     try {
-      const res = await axios.post("http://localhost:5000/api/customers/preview", {
+      const res = await axios.post(`${process.env.REACT_APP_BACKEND_BASE_URL}/api/customers/preview`, {
         rules: rules.map(r => ({
           ...r,
           value: Number(r.value),

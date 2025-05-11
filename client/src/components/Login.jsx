@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter }
 
 const Login = () => {
   const handleLogin = () => {
-    window.location.href = "http://localhost:5000/api/auth/google"
+    window.location.href = `${process.env.REACT_APP_BACKEND_BASE_URL}/api/auth/google`
   }
 
   return (

@@ -156,7 +156,7 @@ const CampaignForm = () => {
     };
 
     try {
-      const res = await axios.post("http://localhost:5000/api/campaigns", payload, {
+      const res = await axios.post(`${process.env.REACT_APP_BACKEND_BASE_URL}/api/campaigns`, payload, {
         withCredentials: true,
       });
 
