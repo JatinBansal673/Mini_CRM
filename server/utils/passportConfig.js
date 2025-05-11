@@ -6,7 +6,7 @@ function passportConfig(passport) {
       {
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL: "/api/auth/google/callback",
+        callbackURL: `${process.env.BACKEND_URL}/api/auth/google/callback`,
       },
       (accessToken, refreshToken, profile, done) => {
         done(null, profile); // Here you can save to DB if needed
