@@ -13,6 +13,8 @@ require("./utils/passportConfig")(passport);
 app.use(cors({ origin: true, credentials: true }));
 app.use(express.json());
 const MongoStore = require("connect-mongo");
+app.set("trust proxy", 1); // trust first proxy
+
 
 app.use(session({
   secret: process.env.SESSION_SECRET,
@@ -21,7 +23,7 @@ app.use(session({
   store: MongoStore.create({ mongoUrl: process.env.MONGO_URI }),
   cookie: {
     maxAge: 24 * 60 * 60 * 1000, // 1 day
-    secure: false,
+    secure: process.env.NODE_ENV === "production",
     httpOnly: true,
     sameSite:"lax", // true only if using HTTPS
   }
@@ -29,6 +31,10 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.get("/", (req, res) => {
+  res.send("Mini CRM backend is running ✅");
+});
 
 app.use("/api/customers", require("./routes/customers"));
 app.use("/api/campaigns", require("./routes/campaigns"));

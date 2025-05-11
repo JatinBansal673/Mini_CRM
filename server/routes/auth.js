@@ -10,13 +10,13 @@ router.get("/google/callback",
   passport.authenticate("google", { failureRedirect: "/" }),
   (req, res) => {
     console.log("✅ Google login success:", req.user);
-    res.redirect("http://localhost:3000/dashboard?loggedIn=true");
+    res.redirect(`${process.env.REACT_APP_FRONTEND_BASE_URL}/dashboard?loggedIn=true`);
   }
 );
 
 router.get("/logout", (req, res) => {
   req.logout(() => {
-    res.redirect("http://localhost:3000");
+    res.redirect(`${process.env.REACT_APP_FRONTEND_BASE_URL}`);
   });
 });
 
