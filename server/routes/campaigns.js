@@ -74,7 +74,7 @@ for (const rule of rules) {
       await log.save();
 
       // Call dummy vendor API to simulate delivery
-      await axios.post(`${process.env.REACT_APP_BACKEND_BASE_URL}/api/vendor/send`, {
+      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/vendor/send`, {
         logId: log._id,
         message: personalized,
       });
