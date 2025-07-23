@@ -51,7 +51,7 @@ The application supports Google OAuth login, CSV-based customer ingestion, AI-po
 
 # 🚀 Installation
 
-**Fork the repository**
+**Fork the repository**  
 Click on the Fork button in the top right  
 GitHub will create a copy in your account, e.g.: https://github.com/your-username/Mini_CRM
 
